@@ -1,6 +1,22 @@
 $main_color: #F8270D;
 
-@import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,bold');
+@font-face {
+  font-family: "SF Display";
+  font-weight: 400;
+  src: url("https://sf.abarba.me/SF-UI-Display-Regular.otf");
+}
+
+@font-face {
+  font-family: "SF Display";
+  font-weight: 500;
+  src: url("https://sf.abarba.me/SF-UI-Display-Medium.otf");
+}
+
+@font-face {
+  font-family: "SF Display";
+  font-weight: 600;
+  src: url("https://sf.abarba.me/SF-UI-Display-Semibold.otf");
+}
 
 * {
   padding: 0;
@@ -15,13 +31,17 @@ html {
 }
 
 body {
-  font-family: 'Quicksand';
+  font-family: 'SF Display';
   color: black;
   margin: 0;
   margin-right: 15px;
   overflow-x: hidden;
   font-weight: 400;
   font-size: 14px;
+  background-image: url('../img/body-bg.jpeg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -153,6 +173,7 @@ select:focus {
 
 // -----------------------
 
+
 .overlay-menu {
   width: 100%;
   height: 100%;
@@ -180,18 +201,14 @@ select:focus {
 }
 
 .bread-crumb {
-  padding: 30px 0;
-  color: black;
+  color: white;
   margin-bottom: 30px;
-  background: #f4f4f4;
-  text-align: center;
-  border-top: 1px solid #e1e1e1;
+  text-align: left;
 
   .breadcrumb {
     background: none;
     padding: 0;
     margin-bottom: 0;
-    justify-content: center;
 
 
     .breadcrumb-item {
@@ -245,13 +262,12 @@ select:focus {
 }
 
 .pagination {
-  margin-bottom: 30px;
-  margin-top: 10px;
+  margin-top: 30px;
 
   .page-item .page-link {
-    background: none;
-    border: 1px solid #cccccc;
-    color: #5E5E5E;
+    background: white;
+    border: 1px solid white;
+    color: #383838;
     border-radius: 3px;
     transition: .5s;
     width: 40px;
@@ -260,6 +276,7 @@ select:focus {
     text-align: center;
     line-height: 25px;
     font-weight: bold;
+    margin-right: 2px;
 
     &:hover,
     &.active {
@@ -272,4 +289,51 @@ select:focus {
 
 .ui-widget.ui-widget-content {
   z-index: 1050;
+}
+
+
+.footer {
+  margin-top: 50px;
+  padding-top: 50px;
+  border-top: 1px solid #cccccc;
+  margin-bottom: 30px;
+
+  img {
+    margin-bottom: 20px;
+  }
+
+  ul {
+    li {
+      display: inline-block;
+      color: white;
+      padding: 0 15px;
+      transition: .3s;
+
+      &:hover {
+        color: $main_color;
+      }
+
+      i {
+        padding-right: 10px;
+      }
+    }
+  }
+
+  .social {
+    margin-top: 20px;
+
+    i {
+      font-size: 20px;
+      padding: 7px 10px;
+      border: 2px solid white;
+      color: white;
+      margin: 0 5px;
+      transition: .3s;
+
+      &:hover {
+        background: $main_color;
+        border-color: $main_color;
+      }
+    }
+  }
 }

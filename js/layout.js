@@ -1,120 +1,3 @@
-$('.product5-carousel').owlCarousel({
-  loop: false,
-  dots: false,
-  nav: true,
-  margin: 20,
-  navText: [
-    "<i class='fa fa-angle-left' aria-hidden='true'></i>",
-    "<i class='fa fa-angle-right' aria-hidden='true'></i>" 
-  ],
-  responsive: {
-    0: {
-      items:2,
-      margin: 10,
-    },
-
-    450: {
-      items:2,
-    },
-
-    768: {
-      items:3
-    },
-    1000: {
-      items:4
-    },
-    1270: {
-      items:5
-    }
-  }
-});
-
-$('.product4-carousel').owlCarousel({
-  loop: false,
-  dots: false,
-  nav: true,
-  margin: 20,
-  navText: [
-    "<i class='fa fa-angle-left' aria-hidden='true'></i>",
-    "<i class='fa fa-angle-right' aria-hidden='true'></i>" 
-  ],
-  responsive: {
-    0: {
-      items:2,
-      margin: 10,
-    },
-
-    450: {
-      items:2,
-    },
-
-    768: {
-      items:3
-    },
-    1000: {
-      items:3
-    },
-    1270: {
-      items:4
-    }
-  }
-});
-
-$('.care-carousel').owlCarousel({
-  loop: false,
-  dots: false,
-  nav: true,
-  margin: 20,
-  navText: [
-    "<i class='fa fa-angle-left' aria-hidden='true'></i>",
-    "<i class='fa fa-angle-right' aria-hidden='true'></i>" 
-  ],
-  responsive: {
-    0: {
-      items:2,
-    },
-    576: {
-      items:3,
-    },
-    768: {
-      items:4
-    },
-    1000: {
-      items:5
-    },
-    1270: {
-      items:6
-    }
-  }
-});
-
-$('.service-carousel').owlCarousel({
-  loop: true,
-  autoplay: true,
-  autoplayTimeout: 3000,
-  autoplayHoverPause: true,
-  dots: false,
-  nav: false,
-  autoplaySpeed: 1000,
-  responsive: {
-    0: {
-        items:1
-    },
-    450: {
-      items:2
-    },
-    768: {
-        items:3
-    },
-    1000: {
-        items:4
-    },
-    1270: {
-        items:4
-    }
-  }
-});
-
 // Slide modal
 $('.xzoom-carousel').owlCarousel({
   loop:false,
@@ -128,67 +11,6 @@ $('.xzoom-carousel').owlCarousel({
     "<i class='fa fa-angle-right' aria-hidden='true'></i>" 
   ],
 });
-
-
-let swiper = new Swiper('.swiper-cate', {
-  slidesPerView: 10,
-  slidesPerColumn: 2,
-  spaceBetween: 1,
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-  breakpoints: {
-    1270: {
-      slidesPerView: 8,
-    },
-    1200: {
-      slidesPerView: 6,
-    },
-    768: {
-      slidesPerView: 4,
-    },
-    450: {
-      slidesPerView: 3,
-    },
-  },
-});
-
-let swiper2 = new Swiper('.swiper-seller', {
-  slidesPerView: 1,
-  slidesPerColumn: 5,
-  spaceBetween: 15,
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-
-});
-
-
-// XZOOM
-$(".xzoom, .xzoom-gallery").xzoom({tint: '#333', Xoffset: 15});
-$('.main-image').bind('click', function () {
-  var xzoom = $(this).data('xzoom');
-  xzoom.closezoom();
-  var gallery = xzoom.gallery().cgallery;
-  var i, images = new Array();
-  for (i in gallery) {
-    images[i] = {
-      src: gallery[i]
-    };
-  }
-  $.magnificPopup.open({
-    items: images,
-    type: 'image',
-    gallery: {
-      enabled: true
-    }
-  });
-  event.preventDefault();
-});
-
-
 
 
 $('document').ready(function () {
@@ -222,40 +44,19 @@ $('document').ready(function () {
     $('html').removeClass('is-navOpen');
   });
 
-  $('.category ul li').hover(function() {
-    let ulChild = $(this).find('ul');
-    $(ulChild).toggleClass('ul-out')
-  });
-
-  $('.view-more').click(function() {
-    $('.category ul').addClass('ul-more')
-    $(this).addClass('d-none')
-    $('.view-less').removeClass('d-none');
-  });
-
-  $('.view-less').click(function() {
-    $('.category ul').removeClass('ul-more')
-    $(this).addClass('d-none')
-    $('.view-more').removeClass('d-none');
-  });
-
-  
-
-  if (ww < 992) {
-    $('.footer-bottom .collapse').removeClass('show');
-  }
-
   if (ww < 1200) {
-    $('.box-product-img a').removeAttr('href');
+    $('.menu .nav li').click(function() {
+      $(this).find('ul').toggleClass('ul-out');
+    });
   }
-  
+
   if (ww > 767) {
     $(window).scroll(() => {
-      if ($(this).scrollTop() > 170) {
-        $('.menu').addClass('menu-down slideInDown');
+      if ($(this).scrollTop() > 1) {
+        $('.menu').addClass('menu-down');
         
       } else {
-        $('.menu').removeClass('menu-down slideInDown');
+        $('.menu').removeClass('menu-down');
       }
     });
   } 
@@ -286,12 +87,6 @@ $('document').ready(function () {
       scrollTop: 0
     }, 600);
     return false;
-  });
-
-  // CATEGORY LEFT
-  $('.list-cate-title').on('click', function () {
-    $('.list-cate-title').removeClass('active');
-    $(this).addClass('active');
   });
 
   // XZOOM SETTING
@@ -332,60 +127,10 @@ $('document').ready(function () {
     $('.left').removeClass('left-out')
   });
 
-  $('.search-btn').click(() => {
-    $('.header-bottom').toggleClass('header-bottom-out')
-  });
-
-  // NOTIFICATION ADD TO CART + WISHLIST
-  $('.custom-cart').click(() => {
-    Swal({
-      title: 'Thông báo',
-      type: 'success',
-      html: 'Bạn đã thêm vào giỏ thành công',
-      showCloseButton: true,
-      showCancelButton: true,
-      focusConfirm: false,
-      confirmButtonText:
-        '<a href="gio-hang.html">Vào giỏ hàng</a>',
-      cancelButtonText:
-        'Tiếp tục mua sắm',
-    })
-  });
-
-  // Autocomplete Search
-  $( function() {
-    let availableTags = [
-      "ActionScript",
-      "AppleScript",
-      "Asp",
-      "BASIC",
-      "C",
-      "C++",
-      "Clojure",
-      "COBOL",
-      "ColdFusion",
-      "Erlang",
-      "Fortran",
-      "Groovy",
-      "Haskell",
-      "Java",
-      "JavaScript",
-      "Lisp",
-      "Perl",
-      "PHP",
-      "Python",
-      "Ruby",
-      "Scala",
-      "Scheme"
-    ];
-    $( ".search input" ).autocomplete({
-      source: availableTags
-    });
-  } );
-
-  // SETTING MODAL OPACITY XZOOM
-  $('.modal-footer button , .modal-header button , .modal').click(() => {
-    $('.xzoom-preview , .xzoom-source').css('opacity', '0')
+  $('.search-btn').click( function() {
+    $(this).find('i').toggleClass('mdi-magnify mdi-close')
+    $('.search-form').toggleClass('search-form-out');
+    $('.search-form input').focus();
   });
 
   $(".box-product-cart-detail-quantity button, .quantity button").on("click", function() {
